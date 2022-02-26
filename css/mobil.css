@@ -1,0 +1,16 @@
+#navbar{
+    flex-direction: column;
+    padding-top:1rem;
+    padding-bottom:0.75rem;
+    overflow:hidden;
+    height:90px;
+}
+
+#egitimler .egitims{
+    flex-direction: column;
+}
+.egitim{
+    width: 100%;
+}
+
+

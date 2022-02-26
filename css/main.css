@@ -1,0 +1,316 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+}
+html{
+    font-family:"roboto",sans-serif;
+} 
+
+/*Menu*/
+
+
+#menuToggle
+{
+  display: block;
+  position:absolute;
+  top: 50px;
+  left: 50px;
+  z-index: 3;
+  translate:(-100%, 0);
+ 
+
+}
+
+#menuToggle img{
+    height:200px ;
+    position: absolute;
+    z-index: -3;
+}
+
+
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: #F8B829;
+}
+
+
+#menuToggle input
+{
+  display:block;
+  width: 40px;
+  height: 32px;
+  position:absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor:pointer;
+  
+  opacity: 0;
+   z-index: 2;
+  
+  
+}
+
+
+
+#menuToggle span
+{
+  display:block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position:relative;
+  
+  background: #fff;
+  border-radius: 7px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+
+#menuToggle input:checked ~ span
+{
+  opacity:1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+
+#menu
+{
+  position:absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  
+  background: #ededed;
+  list-style-type:circle;
+  
+
+  
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  
+  
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+  list-style-type:none;
+
+}
+
+
+ #menuToggle input:checked ~ ul
+ {
+   transform:none;
+   translate:(-100%, 0);
+   clip:initial;
+ }
+
+/* HOME section*/ 
+#home{
+    display:flex;
+    flex-direction: column;
+    justify-content: center; /* fotoğrafı hem dikey hem yatay ortaladık*/
+    align-items: center;
+    padding:2rem;
+    border-bottom: 1px solid grey;
+    color:#232323;
+    background-image: url("data:image/jpeg;base64,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");
+    background-color: rgba(255,255,255,0.10);
+    background-blend-mode: lighten;
+    background-size: cover; 
+  
+}
+
+#home .profil{
+    max-width:100%;
+    height: auto;
+    z-index: 2;
+
+    
+}
+#home .name h2{
+    margin-bottom:3px ;
+    margin-top: auto;
+    color: white;
+    
+   
+    
+}
+#home .name p{
+    opacity:0.6;
+    font-style:bold;
+    color: white;
+    margin-bottom:0.75rem;
+}
+   
+#home a:hover{
+    color:#F8B822;
+    background:rgb(237, 243, 240);
+   
+}
+/* EĞİTİMLER section*/
+#egitimler{
+    color:rgb(250, 249, 249);
+    padding:1rem;
+    cursor: pointer;
+    
+}
+.egitims{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+
+}
+
+.egitim{
+    text-align: center;
+    margin:0 50px;
+    justify-content:center;
+} 
+#egitimler img{
+    width: 10rem;
+}
+.egitim:hover{
+    color:black;
+}
+/* ALDIĞIM KURSLAR SECTİON*/
+
+#kurs{
+    color:white;
+    padding:1.25rem;
+    background-color: #192C30;
+    
+}
+.dersler{
+    display: flex;
+    flex-direction: column;
+    padding:1rem;
+    
+}
+.dersler .ders{
+    display: flex;
+    padding:0.5rem;
+    align-items: center;
+}
+.dersler .ders .course-image{
+    margin-right:0.5rem;
+    position:relative;
+    
+}
+.dersler .ders .course-image img{
+   border-radius: 100%;
+   background: #E44D26;
+width: 112px;
+
+    
+}
+.dersler .ders .ders-cerceve .baslik{
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    margin-bottom:0.25rem;
+
+}
+.dersler .ders .dersYazilari-cerceve .icerik{
+    letter-spacing: 1.2px;  
+    margin-bottom:0.25rem;
+    opacity:0.6;  
+}
+.dersler .ders .dersYazilari-cerceve .egitmen{
+    font-size:0.8rem; 
+    margin-bottom:0.25rem;
+    opacity:0.6;  
+}
+.dersler .ders .dersYazilari-cerceve .rating{
+    font-size:0.8rem; 
+    margin-bottom:0.25rem;
+    opacity:0.6;  
+}
+#contact{
+    color:#fff;
+    padding: 1rem;
+    
+
+}
+#contact .contact-form{
+    max-width: 700px;
+    margin-left:auto;
+    margin-right: auto;
+    display:flex;
+    flex-direction: column;
+    
+
+}
+#contact .contact-form ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    
+}
+#contact .contact-form ul li{
+    padding: 10px;
+
+}
+
+
+
+  
+
+  
+  
+
+ 
+ 
